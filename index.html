@@ -3,53 +3,90 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
-
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
-
+    <link rel="icon" type="image/png" sizes="32x32" href="./public/favicon-32x32.png" />
     <title>Frontend Mentor | Bookmark landing page</title>
-
-    <link href="./output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "blue-600": "hsl(231, 69%, 60%)",
+              "red-400": "hsl(0, 94%, 66%)",
+              "grey-50": "hsl(0, 0%, 97%)",
+              "blue-950": "hsl(229, 31%, 21%)",
+            },
+            fontFamily: {
+              rubik: ["Rubik", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet" />
   </head>
-  <body>
-    Features Pricing Contact Login A Simple Bookmark Manager A clean and simple interface to organize your favourite websites. Open a new browser tab
-    and see your sites load instantly. Try it for free. Get it on Chrome Get it on Firefox Features Our aim is to make it quick and easy for you to
-    access your favourite websites. Your bookmarks sync between your devices so you can access them on the go. Simple Bookmarking Speedy Searching
-    Easy Sharing Bookmark in one click Organize your bookmarks however you like. Our simple drag-and-drop interface gives you complete control over
-    how you manage your favourite sites. More Info Intelligent search Our powerful search feature will help you find saved sites in no time at all. No
-    need to trawl through all of your bookmarks. More Info Share your bookmarks Easily share your bookmarks and collections with others. Create a
-    shareable link that you can send at the click of a button. More Info Download the extension We’ve got more browsers in the pipeline. Please do let
-    us know if you’ve got a favourite you’d like us to prioritize. Add to Chrome Minimum version 62 Add & Install Extension Add to Firefox Minimum
-    version 55 Add & Install Extension Add to Opera Minimum version 46 Add & Install Extension Frequently Asked Questions Here are some of our FAQs.
-    If you have any other questions you’d like answered please feel free to email us.
+  <body class="font-rubik text-[18px] text-blue-950">
+    <!-- Navigation -->
+    <nav class="container mx-auto px-6 py-8 flex justify-between items-center">
+      <img src="./public/logo-bookmark.svg" alt="Bookmark logo" class="h-6" />
+      <div class="hidden md:flex space-x-10">
+        <a href="#" class="uppercase tracking-widest text-sm hover:text-red-400">Features</a>
+        <a href="#" class="uppercase tracking-widest text-sm hover:text-red-400">Pricing</a>
+        <a href="#" class="uppercase tracking-widest text-sm hover:text-red-400">Contact</a>
+        <button
+          class="bg-red-400 text-white px-8 py-2 rounded-md uppercase tracking-widest text-sm shadow-md hover:bg-white hover:text-red-400 border-2 border-red-400"
+        >
+          Login
+        </button>
+      </div>
+      <button class="md:hidden">
+        <img src="./public/icon-hamburger.svg" alt="Menu" class="h-6" />
+      </button>
+    </nav>
 
-    <!-- Question 1 -->
-    What is Bookmark?
+    <!-- Hero Section -->
+    <section class="container mx-auto px-6 py-10 md:flex md:flex-row-reverse md:items-center md:gap-16">
+      <div class="relative mb-10 md:w-1/2">
+        <img src="./public/illustration-hero.svg" alt="Bookmark illustration" class="w-full" />
+        <div class="bg-blue-600 h-80 w-full rounded-l-full absolute -bottom-10 -left-40 -z-10"></div>
+      </div>
+      <div class="md:w-1/2">
+        <h1 class="text-3xl md:text-4xl font-medium text-center md:text-left mb-6">A Simple Bookmark Manager</h1>
+        <p class="text-gray-500 text-center md:text-left mb-6">
+          A clean and simple interface to organize your favourite websites. Open a new browser tab and see your sites load instantly. Try it for free.
+        </p>
+        <div class="flex gap-4 justify-center md:justify-start">
+          <button class="bg-blue-600 text-white py-3 px-4 rounded-md shadow-md hover:bg-white hover:text-blue-600 border-2 border-blue-600">
+            Get it on Chrome
+          </button>
+          <button class="bg-gray-100 text-gray-600 py-3 px-4 rounded-md shadow-md hover:bg-white hover:text-gray-600 border-2 border-gray-100">
+            Get it on Firefox
+          </button>
+        </div>
+      </div>
+    </section>
 
-    <!-- Answer 1 -->
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt justo eget ultricies fringilla. Phasellus blandit ipsum quis quam ornare
-    mattis.
+    <!-- Features Section -->
+    <section class="container mx-auto px-6 py-20">
+      <div class="text-center max-w-lg mx-auto mb-16">
+        <h2 class="text-2xl md:text-3xl font-medium mb-4">Features</h2>
+        <p class="text-gray-500">
+          Our aim is to make it quick and easy for you to access your favourite websites. Your bookmarks sync between your devices so you can access
+          them on the go.
+        </p>
+      </div>
 
-    <!-- Question 2 -->
-    How can I request a new browser?
+      <!-- Tabs -->
+      <div class="border-b border-gray-200 mb-12">
+        <div class="flex flex-col md:flex-row justify-center gap-2 md:gap-0">
+          <button class="py-4 px-8 border-b-2 border-red-400 font-medium">Simple Bookmarking</button>
+          <button class="py-4 px-8 text-gray-500 hover:text-red-400">Speedy Searching</button>
+          <button class="py-4 px-8 text-gray-500 hover:text-red-400">Easy Sharing</button>
+        </div>
+      </div>
 
-    <!-- Answer 2 -->
-    Vivamus luctus eros aliquet convallis ultricies. Mauris augue massa, ultricies non ligula. Suspendisse imperdiet. Vivamus luctus eros aliquet
-    convallis ultricies. Mauris augue massa, ultricies non ligula. Suspendisse imperdie tVivamus luctus eros aliquet convallis ultricies. Mauris augue
-    massa, ultricies non ligula. Suspendisse imperdiet.
-
-    <!-- Question 3 -->
-    Is there a mobile app?
-
-    <!-- Answer 3 -->
-    Sed consectetur quam id neque fermentum accumsan. Praesent luctus vestibulum dolor, ut condimentum urna vulputate eget. Cras in ligula quis est
-    pharetra mattis sit amet pharetra purus. Sed sollicitudin ex et ultricies bibendum.
-
-    <!-- Question 4 -->
-    What about other Chromium browsers?
-
-    <!-- Answer 4 -->
-    Integer condimentum ipsum id imperdiet finibus. Vivamus in placerat mi, at euismod dui. Aliquam vitae neque eget nisl gravida pellentesque non ut
-    velit. More Info 35,000+ already joined Stay up-to-date with what we’re doing Contact Us Features Pricing Contact
+    <script src="./src/main.js"></script>
   </body>
 </html>
