@@ -71,10 +71,10 @@
     </section>
 
     <!-- Features Section -->
-    <section class="container mx-auto px-6 py-20">
-      <div class="text-center max-w-lg mx-auto mb-16">
-        <h2 class="text-2xl md:text-3xl font-medium mb-4">Features</h2>
-        <p class="text-gray-500">
+    <section class="container mx-auto px-6 py-16 max-w-6xl">
+      <div class="text-center mb-4">
+        <h2 class="text-3xl font-medium mb-4">Features</h2>
+        <p class="text-gray-500 max-w-lg mx-auto">
           Our aim is to make it quick and easy for you to access your favourite websites. Your bookmarks sync between your devices so you can access
           them on the go.
         </p>
@@ -83,16 +83,18 @@
       <!-- Tabs -->
       <div class="border-b border-gray-200 mb-12">
         <div class="flex flex-col md:flex-row justify-center gap-2 md:gap-0">
-          <button class="py-4 px-8 border-b-2 border-red-400 font-medium">Simple Bookmarking</button>
-          <button class="py-4 px-8 text-gray-500 hover:text-red-400">Speedy Searching</button>
-          <button class="py-4 px-8 text-gray-500 hover:text-red-400">Easy Sharing</button>
+          <button id="tab1" class="tab-button py-4 px-8 border-b-2 text-gray-500 hover:text-red-400 hover:border-red-400 active">
+            Simple Bookmarking
+          </button>
+          <button id="tab2" class="tab-button py-4 px-8 border-b-2 text-gray-500 hover:text-red-400 hover:border-red-400">Speedy Searching</button>
+          <button id="tab3" class="tab-button py-4 px-8 border-b-2 text-gray-500 hover:text-red-400 hover:border-red-400">Easy Sharing</button>
         </div>
       </div>
 
-      <!-- Tab Content -->
-      <div class="md:flex md:items-center md:gap-16">
+      <!-- Tab 1 Content -->
+      <div id="content1" class="tab-content active md:flex md:items-center md:gap-16">
         <div class="relative mb-10 md:w-1/2">
-          <img src="./public/illustration-features-tab-1.svg" alt="Features illustration" class="w-100" />
+          <img src="./public/illustration-features-tab-1.svg" alt="Features illustration" class="w-100 mx-auto" />
           <div class="bg-blue-600 h-80 w-full rounded-r-full absolute -bottom-20 -right-0 -left-10 -z-10"></div>
         </div>
         <div class="md:w-1/2">
@@ -100,6 +102,48 @@
           <p class="text-gray-500 text-center md:text-left mb-6">
             Organize your bookmarks however you like. Our simple drag-and-drop interface gives you complete control over how you manage your favourite
             sites.
+          </p>
+          <div class="text-center md:text-left">
+            <button
+              class="bg-blue-600 text-white py-3 px-6 rounded-md shadow-md hover:bg-white hover:text-blue-600 border-2 border-blue-600 hidden md:inline-block"
+            >
+              More Info
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2 Content -->
+      <div id="content2" class="tab-content md:flex md:items-center md:gap-16">
+        <div class="relative mb-10 md:w-1/2">
+          <img src="./public/illustration-features-tab-2.svg" alt="Intelligent search illustration" class="w-100 mx-auto" />
+          <div class="bg-blue-600 h-80 w-full rounded-r-full absolute -bottom-20 -right-0 -left-10 -z-10"></div>
+        </div>
+        <div class="md:w-1/2">
+          <h3 class="text-2xl font-medium text-center md:text-left mb-4">Intelligent search</h3>
+          <p class="text-gray-500 text-center md:text-left mb-6">
+            Our powerful search feature will help you find saved sites in no time at all. No need to trawl through all of your bookmarks.
+          </p>
+          <div class="text-center md:text-left">
+            <button
+              class="bg-blue-600 text-white py-3 px-6 rounded-md shadow-md hover:bg-white hover:text-blue-600 border-2 border-blue-600 hidden md:inline-block"
+            >
+              More Info
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3 Content -->
+      <div id="content3" class="tab-content md:flex md:items-center md:gap-16">
+        <div class="relative mb-10 md:w-1/2">
+          <img src="./public/illustration-features-tab-3.svg" alt="Sharing illustration" class="w-100 mx-auto" />
+          <div class="bg-blue-600 h-80 w-full rounded-r-full absolute -bottom-20 -right-0 -left-10 -z-10"></div>
+        </div>
+        <div class="md:w-1/2">
+          <h3 class="text-2xl font-medium text-center md:text-left mb-4">Share your bookmarks</h3>
+          <p class="text-gray-500 text-center md:text-left mb-6">
+            Easily share your bookmarks and collections with others. Create a shareable link that you can send at the click of a button.
           </p>
           <div class="text-center md:text-left">
             <button
@@ -121,36 +165,42 @@
         </p>
       </div>
 
-      <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-4 md:items-start">
+      <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-8 md:items-start">
         <!-- Chrome Card -->
-        <div class="bg-white rounded-lg shadow-lg p-6 text-center w-64 mt-0 md:mt-8">
+        <div class="bg-white rounded-lg shadow-lg p-6 text-center w-80 mt-0 md:mt-8">
           <img src="./public/logo-chrome.svg" alt="Chrome logo" class="mx-auto mb-6" />
           <h3 class="font-medium mb-2">Add to Chrome</h3>
           <p class="text-gray-500 text-sm mb-6">Minimum version 62</p>
           <img src="./public/bg-dots.svg" alt="Dots" class="mb-6 w-full" />
-          <button class="bg-blue-600 text-white py-3 px-6 rounded-md w-full hover:bg-white hover:text-blue-600 border-2 border-blue-600">
+          <button
+            class="bg-blue-600 text-white py-3 px-6 rounded-md w-full md:w-64 hover:bg-white hover:text-blue-600 border-2 border-blue-600 transition-colors duration-300"
+          >
             Add & Install Extension
           </button>
         </div>
 
         <!-- Firefox Card -->
-        <div class="bg-white rounded-lg shadow-lg p-6 text-center w-64 mt-0 md:mt-16">
+        <div class="bg-white rounded-lg shadow-lg p-6 text-center w-80 mt-0 md:mt-16">
           <img src="./public/logo-firefox.svg" alt="Firefox logo" class="mx-auto mb-6" />
           <h3 class="font-medium mb-2">Add to Firefox</h3>
           <p class="text-gray-500 text-sm mb-6">Minimum version 55</p>
           <img src="./public/bg-dots.svg" alt="Dots" class="mb-6 w-full" />
-          <button class="bg-blue-600 text-white py-3 px-6 rounded-md w-full hover:bg-white hover:text-blue-600 border-2 border-blue-600">
+          <button
+            class="bg-blue-600 text-white py-3 px-6 rounded-md w-full md:w-64 hover:bg-white hover:text-blue-600 border-2 border-blue-600 transition-colors duration-300"
+          >
             Add & Install Extension
           </button>
         </div>
 
         <!-- Opera Card -->
-        <div class="bg-white rounded-lg shadow-lg p-6 text-center w-64 mt-0 md:mt-24">
+        <div class="bg-white rounded-lg shadow-lg p-6 text-center w-80 mt-0 md:mt-24">
           <img src="./public/logo-opera.svg" alt="Opera logo" class="mx-auto mb-6" />
           <h3 class="font-medium mb-2">Add to Opera</h3>
           <p class="text-gray-500 text-sm mb-6">Minimum version 46</p>
           <img src="./public/bg-dots.svg" alt="Dots" class="mb-6 w-full" />
-          <button class="bg-blue-600 text-white py-3 px-6 rounded-md w-full hover:bg-white hover:text-blue-600 border-2 border-blue-600">
+          <button
+            class="bg-blue-600 text-white py-3 px-6 rounded-md w-full md:w-64 hover:bg-white hover:text-blue-600 border-2 border-blue-600 transition-colors duration-300"
+          >
             Add & Install Extension
           </button>
         </div>
@@ -238,7 +288,7 @@
 
     <!-- Footer -->
     <footer class="bg-blue-950 py-8">
-      <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+      <div class="container mx-auto px-20 flex flex-col md:flex-row justify-between items-center">
         <div class="flex flex-col md:flex-row items-center gap-10 mb-6 md:mb-0">
           <img src="./public/logo-bookmark.svg" alt="Bookmark logo" class="h-6 invert brightness-0" />
           <div class="flex flex-col md:flex-row gap-6 text-white uppercase tracking-widest text-sm">
