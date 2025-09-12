@@ -40,13 +40,13 @@
           Login
         </button>
       </div>
-      <button class="md:hidden">
+      <button id="hamburger-btn" class="md:hidden">
         <img src="./public/icon-hamburger.svg" alt="Menu" class="h-6" />
       </button>
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="mobile-menu">
+    <div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-[rgba(37,43,70,0.95)] z-50 flex flex-col">
       <div class="flex justify-between items-center px-6 py-8">
         <img src="./public/logo-bookmark.svg" alt="Bookmark logo" class="h-6 filter brightness-0 invert" />
         <button id="close-menu">
@@ -105,14 +105,14 @@
       <!-- Tabs -->
       <div class="border-b border-gray-200 mb-12">
         <div class="flex flex-col md:flex-row justify-center gap-2 md:gap-0">
-          <button id="tab1" class="tab-button py-4 px-8 border-b-2 text-gray-500 hover:text-red-400 hover:border-red-400">Simple Bookmarking</button>
+          <button id="tab1" class="tab-button py-4 px-8 border-b-2 border-red-400 text-red-400">Simple Bookmarking</button>
           <button id="tab2" class="tab-button py-4 px-8 border-b-2 text-gray-500 hover:text-red-400 hover:border-red-400">Speedy Searching</button>
           <button id="tab3" class="tab-button py-4 px-8 border-b-2 text-gray-500 hover:text-red-400 hover:border-red-400">Easy Sharing</button>
         </div>
       </div>
 
       <!-- Tab 1 Content -->
-      <div id="content1" class="tab-content active md:flex md:items-center md:gap-16">
+      <div id="content1" class="md:flex md:items-center md:gap-16">
         <div class="relative mb-10 md:w-1/2">
           <img src="./public/illustration-features-tab-1.svg" alt="Features illustration" class="w-100 mx-auto" />
           <div class="bg-blue-600 h-56 w-full rounded-r-full absolute -bottom-10 -right-20 -left-10 -z-10 md:-right-0 md:h-80"></div>
@@ -134,7 +134,7 @@
       </div>
 
       <!-- Tab 2 Content -->
-      <div id="content2" class="tab-content md:flex md:items-center md:gap-16">
+      <div id="content2" class="hidden md:flex md:items-center md:gap-16">
         <div class="relative mb-10 md:w-1/2">
           <img src="./public/illustration-features-tab-2.svg" alt="Intelligent search illustration" class="w-100 mx-auto" />
           <div class="bg-blue-600 h-56 w-full rounded-r-full absolute -bottom-10 -right-20 -left-10 -z-10 md:-right-0 md:h-80"></div>
@@ -155,7 +155,7 @@
       </div>
 
       <!-- Tab 3 Content -->
-      <div id="content3" class="tab-content md:flex md:items-center md:gap-16">
+      <div id="content3" class="hidden md:flex md:items-center md:gap-16">
         <div class="relative mb-10 md:w-1/2">
           <img src="./public/illustration-features-tab-3.svg" alt="Sharing illustration" class="w-100 mx-auto" />
           <div class="bg-blue-600 h-56 w-full rounded-r-full absolute -bottom-10 -right-20 -left-10 -z-10 md:-right-0 md:h-80"></div>
@@ -237,7 +237,7 @@
       <div class="max-w-2xl mx-auto mb-10">
         <!-- Question 1 -->
         <div class="border-b border-gray-200 py-4">
-          <button class="flex justify-between items-center w-full text-left font-medium hover:text-red-400">
+          <button class="faq-question flex justify-between items-center w-full text-left font-medium hover:text-red-400">
             What is Bookmark?
             <img src="./public/icon-arrow.svg" alt="Arrow" class="transform transition-transform" />
           </button>
@@ -249,7 +249,7 @@
 
         <!-- Question 2 -->
         <div class="border-b border-gray-200 py-4">
-          <button class="flex justify-between items-center w-full text-left font-medium hover:text-red-400">
+          <button class="faq-question flex justify-between items-center w-full text-left font-medium hover:text-red-400">
             How can I request a new browser?
             <img src="./public/icon-arrow.svg" alt="Arrow" class="transform transition-transform" />
           </button>
@@ -261,7 +261,7 @@
 
         <!-- Question 3 -->
         <div class="border-b border-gray-200 py-4">
-          <button class="flex justify-between items-center w-full text-left font-medium hover:text-red-400">
+          <button class="faq-question flex justify-between items-center w-full text-left font-medium hover:text-red-400">
             Is there a mobile app?
             <img src="./public/icon-arrow.svg" alt="Arrow" class="transform transition-transform" />
           </button>
@@ -273,7 +273,7 @@
 
         <!-- Question 4 -->
         <div class="border-b border-gray-200 py-4">
-          <button class="flex justify-between items-center w-full text-left font-medium hover:text-red-400">
+          <button class="faq-question flex justify-between items-center w-full text-left font-medium hover:text-red-400">
             What about other Chromium browsers?
             <img src="./public/icon-arrow.svg" alt="Arrow" class="transform transition-transform" />
           </button>
@@ -299,7 +299,7 @@
         <form id="contact-form" class="flex flex-col md:flex-row gap-4 max-w-md mx-auto md:max-w-xl">
           <div class="flex-1 relative">
             <input type="text" id="email-input" placeholder="Enter your email address" class="w-full py-3 px-4 rounded-md" />
-            <div id="email-error" class="email-error"></div>
+            <div id="email-error" class="hidden text-white bg-red-400 italic text-left p-1 px-3 rounded mt-1"></div>
           </div>
           <button type="submit" class="bg-red-400 text-white py-3 px-6 rounded-md hover:bg-white hover:text-red-400 border-2 border-red-400">
             Contact Us
@@ -310,7 +310,7 @@
 
     <!-- Footer -->
     <footer class="bg-blue-950 py-8">
-      <div class="container mx-auto px-20 flex flex-col md:flex-row justify-between items-center">
+      <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center md:px-20">
         <div class="flex flex-col md:flex-row items-center gap-10 mb-6 md:mb-0">
           <img src="./public/logo-bookmark.svg" alt="Bookmark logo" class="h-6 invert brightness-0" />
           <div class="flex flex-col md:flex-row gap-6 text-white uppercase tracking-widest text-sm">
