@@ -17,27 +17,62 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Tab functionality
   const tabButtons = document.querySelectorAll(".tab-button");
   const tabContents = document.querySelectorAll("#content1, #content2, #content3");
 
+  // Initialize tabs - set first tab as active and hide others
+  function initializeTabs() {
+    // Hide all tab contents except the first one
+    tabContents.forEach((content, index) => {
+      if (index === 0) {
+        content.classList.remove("hidden");
+        if (window.innerWidth >= 768) {
+          content.classList.add("md:flex");
+        }
+      } else {
+        content.classList.add("hidden");
+        content.classList.remove("md:flex");
+      }
+    });
+
+    // Set first tab button as active
+    tabButtons.forEach((button, index) => {
+      if (index === 0) {
+        button.classList.add("border-red-400", "border-b-2", "text-red-400");
+        button.classList.remove("text-gray-500");
+      } else {
+        button.classList.remove("border-red-400", "border-b-2", "text-red-400");
+        button.classList.add("text-gray-500");
+      }
+    });
+  }
+
   function switchTab(tabIndex) {
+    // Update button styles
     tabButtons.forEach((button) => {
       button.classList.remove("border-red-400", "border-b-2", "text-red-400");
       button.classList.add("text-gray-500");
     });
 
+    // Update content visibility
     tabContents.forEach((content) => {
       content.classList.add("hidden");
       content.classList.remove("md:flex");
     });
 
+    // Activate selected tab
     tabButtons[tabIndex].classList.add("border-red-400", "border-b-2", "text-red-400");
     tabButtons[tabIndex].classList.remove("text-gray-500");
     tabContents[tabIndex].classList.remove("hidden");
+
     if (window.innerWidth >= 768) {
       tabContents[tabIndex].classList.add("md:flex");
     }
   }
+
+  // Initialize tabs on page load
+  initializeTabs();
 
   tabButtons.forEach((button, index) => {
     button.addEventListener("click", () => {
@@ -52,11 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
     question.addEventListener("click", () => {
       const answer = question.nextElementSibling;
       const arrow = question.querySelector("img");
-
-      // Toggle hidden class on answer
       answer.classList.toggle("hidden");
-
-      // Rotate arrow
       arrow.classList.toggle("rotate-180");
     });
   });
