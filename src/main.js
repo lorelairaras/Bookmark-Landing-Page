@@ -21,9 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const tabButtons = document.querySelectorAll(".tab-button");
   const tabContents = document.querySelectorAll("#content1, #content2, #content3");
 
-  // Initialize tabs - set first tab as active and hide others
   function initializeTabs() {
-    // Hide all tab contents except the first one
     tabContents.forEach((content, index) => {
       if (index === 0) {
         content.classList.remove("hidden");
@@ -36,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Set first tab button as active
     tabButtons.forEach((button, index) => {
       if (index === 0) {
         button.classList.add("border-red-400", "border-b-2", "text-red-400");
@@ -49,19 +46,16 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function switchTab(tabIndex) {
-    // Update button styles
     tabButtons.forEach((button) => {
       button.classList.remove("border-red-400", "border-b-2", "text-red-400");
       button.classList.add("text-gray-500");
     });
 
-    // Update content visibility
     tabContents.forEach((content) => {
       content.classList.add("hidden");
       content.classList.remove("md:flex");
     });
 
-    // Activate selected tab
     tabButtons[tabIndex].classList.add("border-red-400", "border-b-2", "text-red-400");
     tabButtons[tabIndex].classList.remove("text-gray-500");
     tabContents[tabIndex].classList.remove("hidden");
@@ -71,7 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Initialize tabs on page load
   initializeTabs();
 
   tabButtons.forEach((button, index) => {
